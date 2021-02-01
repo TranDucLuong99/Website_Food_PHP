@@ -1,0 +1,19 @@
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule gio-hang-cua-ban.html index.php?controller=cart&action=index
+RewriteRule cua-hang.html index.php?controller=shop&action=index
+RewriteRule trang-chu.html index.php?controller=home&action=index
+RewriteRule tin-tuc.html index.php?controller=new&action=index
+RewriteRule lien-he.html index.php?controller=contact&action=index
+#Giả sử rewrite cho trang chi tiết sản phẩm
+RewriteRule san-pham/(.*)/([0-9]{1,}).html index.php?controller=product&action=detail&title=$1&id=$2
+RewriteRule tin-tuc/(.*)/([0-9]{1,}).html index.php?controller=blog&action=detail&title=$1&id=$2
+#Khai báo rule cho Xóa sản phẩm khỏi giỏ hàng
+#xoa-san-pham/4.html
+RewriteRule xoa-san-pham/([0-9]{1,}).html index.php?controller=cart&action=delete&id=$1
+#Rule cho rewrite Trang thanh toán
+RewriteRule thanh-toan.html index.php?controller=payment&action=index
+
